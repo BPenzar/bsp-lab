@@ -28,8 +28,6 @@ function SocialLinks() {
       <SocialLink href={socialLinks.github} icon={FaGithub} />
       <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
       <SocialLink href={socialLinks.email} icon={TbMailFilled} />
-        <FaRss />
-      </a>
     </div>
   );
 }
