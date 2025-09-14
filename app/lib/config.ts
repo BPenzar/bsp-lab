@@ -8,7 +8,7 @@ export const metaData = {
 };
 
 export const socialLinks = {
-  x: "https://x.com/Brunopenzar",       
+  twitter: "https://x.com/Brunopenzar",       
   github: "https://github.com/BPenzar",
   instagram: "https://www.instagram.com/",
   linkedin: "https://www.linkedin.com/in/bruno-penzar",
