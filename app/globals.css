@@ -5,32 +5,37 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 
-//* Statik: vrlo taman navy, bez "sheen" i bez bandinga */
-.deep-navy {
+/* Suptilni tamni navy gradient */
+@keyframes deepDrift {
+  0%   { background-position: 48% 52%; }
+  50%  { background-position: 52% 48%; }
+  100% { background-position: 48% 52%; }
+}
+
+.bg-deep-navy {
   background: linear-gradient(
     135deg,
-    #070b12 0%,
-    #0a0f17 35%,
-    #0c1521 60%,
-    #070b12 100%
+    #0a0f1a 0%,
+    #0d1726 30%,
+    #101a2c 60%,
+    #0b1220 100%
   );
-  background-attachment: fixed;
+  background-size: 200% 200%;
+  animation: deepDrift 120s ease-in-out infinite; /* vrlo sporo */
 }
 
-/* Opcionalno: gotovo neprimjetna mikro-animacija (ako želiš mrvicu "života") */
-@keyframes microDrift {
-  0%   { background-position: 49% 51%; }
-  50%  { background-position: 51% 49%; }
-  100% { background-position: 49% 51%; }
-}
-.deep-navy.micro {
-  background-size: 120% 120%;
-  animation: microDrift 160s ease-in-out infinite;
-}
-
-/* Poštuje OS postavku smanjene animacije */
-@media (prefers-reduced-motion: reduce) {
-  .deep-navy.micro { animation: none; }
+/* fallback za light mode */
+@media (prefers-color-scheme: light) {
+  .bg-deep-navy {
+    background: linear-gradient(
+      135deg,
+      #f1f5f9 0%,
+      #e2e8f0 50%,
+      #f8fafc 100%
+    );
+    background-size: 200% 200%;
+    animation: deepDrift 160s ease-in-out infinite;
+  }
 }
 
 
