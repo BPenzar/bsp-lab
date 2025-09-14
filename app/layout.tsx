@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.className}`}>
       <head></head>
-      <body className="antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-12 min-h-screen bg-[url('/logo.png')] bg-no-repeat bg-center bg-cover">
+     <body className="antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-12 min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
