@@ -5,84 +5,74 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 
-/* Animate-able hue token */
-@property --hue {
-  syntax: "<number>";
-  inherits: false;
-  initial-value: 220;
-}
+/* ---- Color tokens (HSL) ---- */
+@property --hue { syntax: "<number>"; inherits: false; initial-value: 195; }
 
-/* Base tokens */
+/* Light mode */
 :root {
-  --hue: 215;                 /* light mode base */
-  --accent: hsl(var(--hue) 88% 54%);
-  --accent-2: hsl(calc(var(--hue) + 18) 88% 54%);
-  --ink: #0b1220;             /* text on light */
-  --paper: #ffffff;           /* bg on light */
+  --hue: 192;                   /* cyan-teal base */
+  --paper: #0b0f14;             /* page bg in dark is set in .dark, here keep for fallback */
+  --ink: #0b1220;               /* text on light */
+  --paper-light: #fbfdff;       /* page bg light */
+  --ink-light: #0b1220;
+
+  --accent: hsl(var(--hue) 82% 46%);
+  --accent-2: hsl(calc(var(--hue) + 18) 78% 54%);
+  --muted: hsl(220 10% 45%);
+  --ring: hsl(var(--hue) 86% 60%);
 }
 
-/* Dark mode tokens */
+/* Dark mode */
 .dark {
-  --hue: 220;                 /* dark mode base */
-  --accent: hsl(var(--hue) 86% 62%);
-  --accent-2: hsl(calc(var(--hue) + 16) 86% 62%);
-  --ink: #e5eaf3;             /* text on dark */
-  --paper: #0b0f14;           /* bg on dark */
+  --hue: 196;                   /* slightly cooler in dark */
+  --paper: #0a0f18;             /* midnight navy */
+  --ink: #e6edf7;
+
+  --accent: hsl(var(--hue) 80% 60%);   /* cyan */
+  --accent-2: hsl(calc(var(--hue) + 16) 70% 64%); /* teal-cyan */
+  --muted: hsl(215 12% 72%);
+  --ring: hsl(var(--hue) 85% 62%);
 }
 
-/* Subtle global chroma “breathing” (almost imperceptible) */
-@keyframes hueCycle {
-  0%   { --hue: 215; }
-  50%  { --hue: 228; }
-  100% { --hue: 215; }
-}
-.chroma {
-  animation: hueCycle 120s ease-in-out infinite;
-}
+/* Optional: very subtle global hue drift (almost invisible) */
+@keyframes hueCycle { 0%{--hue:192} 50%{--hue:200} 100%{--hue:192} }
+.chroma { animation: hueCycle 150s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .chroma { animation: none; } }
 
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .chroma { animation: none; }
-}
+/* Apply tokens */
+body { background: var(--paper-light); color: var(--ink-light); }
+.dark body { background: var(--paper); color: var(--ink); }
 
-/* Use tokens */
-body {
-  background: var(--paper);
-  color: var(--ink);
-}
+/* Links */
+a { color: var(--accent); text-decoration-color: color-mix(in oklab, var(--accent) 65%, transparent); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--accent); }
 
-/* Headings with gentle gradient ink */
+/* Headings with tasteful gradient ink */
 .brand-gradient {
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 
-/* Links get accent color + better underline */
-a {
-  color: var(--accent);
-  text-decoration-color: color-mix(in oklab, var(--accent) 70%, transparent);
-  text-underline-offset: 3px;
-}
-a:hover {
-  text-decoration-color: var(--accent);
-}
-
-/* Primary button utility */
+/* Buttons */
 .btn-primary {
-  background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 85%, #fff 15%), var(--accent));
+  background: linear-gradient(180deg,
+    color-mix(in oklab, var(--accent) 88%, #fff 12%),
+    var(--accent));
   color: white;
-  border: 1px solid color-mix(in oklab, var(--accent) 65%, #000 35%);
-  box-shadow: 0 1px 0 color-mix(in oklab, var(--accent) 50%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 55%, #000 45%);
+  box-shadow: 0 1px 0 color-mix(in oklab, var(--accent) 45%, transparent);
 }
-.btn-primary:hover {
-  filter: brightness(1.05);
-}
+.btn-primary:hover { filter: brightness(1.06); }
+
 .btn-outline {
-  border: 1px solid color-mix(in oklab, var(--accent) 55%, var(--ink) 45%);
   color: var(--accent);
+  border: 1px solid color-mix(in oklab, var(--accent) 55%, var(--ink) 45%);
+  background: transparent;
 }
+.btn-outline:hover { background: color-mix(in oklab, var(--accent) 10%, transparent); }
+
+/* Focus ring */
+:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
 
 
 
