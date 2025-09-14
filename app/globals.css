@@ -4,20 +4,47 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+
+/* Suptilan dinamični gradient koji "diše" */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.dynamic-gradient {
+  /* 4 nijanse → vrlo suptilno; nema kričavih boja */
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #0b3b69, #0f2e5c);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease-in-out infinite;
+}
+
+/* Svjetlija varijanta za light mode, automatski */
+@media (prefers-color-scheme: light) {
+  .dynamic-gradient {
+    background: linear-gradient(-45deg, #f8fafc, #e2e8f0, #dbeafe, #e0e7ff);
+    background-size: 400% 400%;
+    animation: gradientShift 22s ease-in-out infinite;
+  }
+}
+
+/* Blaga vinjeta da sadržaj bude čitkiji */
+body.vignette::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(1200px 600px at 70% 10%, transparent 0%, rgba(0,0,0,0.15) 80%);
+  z-index: 0; /* ispod sadržaja */
+}
+
+
+
+
+
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.dynamic-gradient {
-  background: linear-gradient(-45deg, #1e3a8a, #2563eb, #3b82f6, #60a5fa);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
 }
 
 
