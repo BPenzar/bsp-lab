@@ -15,7 +15,9 @@ export default function Page() {
           priority
         />
       </a>
-      <h1 className="mb-8 text-2xl font-medium">BSP Lab — portfolio</h1>
+
+      <h1 className="mb-8 text-2xl font-medium brand-gradient">BSP Lab — portfolio</h1>
+
       <div className="prose prose-neutral dark:prose-invert">
         <p>
           Digitalizacija i AI rješenja za mala i srednja poduzeća. Fokus na
