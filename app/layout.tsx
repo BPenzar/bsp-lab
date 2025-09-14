@@ -59,14 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.className}`}>
       <head></head>
-      <body className="dynamic-gradient vignette antialiased min-h-screen flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-12">
-        <Image
-          src="/logo.png"
-          alt="Logo"
-          width={80}
-          height={80}
-          className="fixed top-4 right-4 opacity-70 animate-bounce"
-        />
+      <body className="bg-drift antialiased min-h-screen flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-12">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
