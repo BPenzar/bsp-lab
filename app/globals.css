@@ -38,6 +38,42 @@ body.vignette::before {
   z-index: 0; /* ispod sadržaja */
 }
 
+/* Tamni, suptilni navy gradient koji polako "diše" */
+@keyframes drift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-drift {
+  /* nijanse: vrlo tamni navy s blagim plavo-sivim prijelazima */
+  background: linear-gradient(135deg, #0b1220, #0f1b2d, #132238, #0a0f1a);
+  background-size: 300% 300%;
+  animation: drift 40s ease-in-out infinite;
+}
+
+/* Suptilna dijagonalna "sheen" traka za dubinu (vrlo blago) */
+.bg-drift::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(255,255,255,0.04), rgba(255,255,255,0.0) 35%, rgba(255,255,255,0.03) 65%, rgba(255,255,255,0.0));
+  mix-blend-mode: soft-light;
+}
+
+/* Light mode varijanta (ako netko forsira svjetlo) – i dalje vrlo suptilna */
+@media (prefers-color-scheme: light) {
+  .bg-drift {
+    background: linear-gradient(135deg, #e9eef7, #e6edf8, #e2eaf6, #e9eef7);
+    background-size: 300% 300%;
+    animation: drift 45s ease-in-out infinite;
+  }
+  .bg-drift::after {
+    background: linear-gradient(120deg, rgba(0,0,0,0.06), rgba(0,0,0,0.0) 35%, rgba(0,0,0,0.05) 65%, rgba(0,0,0,0.0));
+  }
+}
+
 
 
 
