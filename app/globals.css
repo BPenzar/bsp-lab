@@ -5,38 +5,87 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 
-/* Suptilni tamni navy gradient */
-@keyframes deepDrift {
-  0%   { background-position: 48% 52%; }
-  50%  { background-position: 52% 48%; }
-  100% { background-position: 48% 52%; }
+/* Animate-able hue token */
+@property --hue {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 220;
 }
 
-.bg-deep-navy {
-  background: linear-gradient(
-    135deg,
-    #0a0f1a 0%,
-    #0d1726 30%,
-    #101a2c 60%,
-    #0b1220 100%
-  );
-  background-size: 200% 200%;
-  animation: deepDrift 120s ease-in-out infinite; /* vrlo sporo */
+/* Base tokens */
+:root {
+  --hue: 215;                 /* light mode base */
+  --accent: hsl(var(--hue) 88% 54%);
+  --accent-2: hsl(calc(var(--hue) + 18) 88% 54%);
+  --ink: #0b1220;             /* text on light */
+  --paper: #ffffff;           /* bg on light */
 }
 
-/* fallback za light mode */
-@media (prefers-color-scheme: light) {
-  .bg-deep-navy {
-    background: linear-gradient(
-      135deg,
-      #f1f5f9 0%,
-      #e2e8f0 50%,
-      #f8fafc 100%
-    );
-    background-size: 200% 200%;
-    animation: deepDrift 160s ease-in-out infinite;
-  }
+/* Dark mode tokens */
+.dark {
+  --hue: 220;                 /* dark mode base */
+  --accent: hsl(var(--hue) 86% 62%);
+  --accent-2: hsl(calc(var(--hue) + 16) 86% 62%);
+  --ink: #e5eaf3;             /* text on dark */
+  --paper: #0b0f14;           /* bg on dark */
 }
+
+/* Subtle global chroma “breathing” (almost imperceptible) */
+@keyframes hueCycle {
+  0%   { --hue: 215; }
+  50%  { --hue: 228; }
+  100% { --hue: 215; }
+}
+.chroma {
+  animation: hueCycle 120s ease-in-out infinite;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .chroma { animation: none; }
+}
+
+/* Use tokens */
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* Headings with gentle gradient ink */
+.brand-gradient {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Links get accent color + better underline */
+a {
+  color: var(--accent);
+  text-decoration-color: color-mix(in oklab, var(--accent) 70%, transparent);
+  text-underline-offset: 3px;
+}
+a:hover {
+  text-decoration-color: var(--accent);
+}
+
+/* Primary button utility */
+.btn-primary {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 85%, #fff 15%), var(--accent));
+  color: white;
+  border: 1px solid color-mix(in oklab, var(--accent) 65%, #000 35%);
+  box-shadow: 0 1px 0 color-mix(in oklab, var(--accent) 50%, transparent);
+}
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+.btn-outline {
+  border: 1px solid color-mix(in oklab, var(--accent) 55%, var(--ink) 45%);
+  color: var(--accent);
+}
+
+
+
 
 
 
