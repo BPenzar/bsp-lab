@@ -1,23 +1,18 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Image from "next/image";              // <= DODAJ OVO
 import { Navbar } from "./components/nav";
+import Footer from "./components/footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Footer from "./components/footer";
 import { ThemeProvider } from "./components/theme-switch";
 import { metaData } from "./lib/config";
-
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(metaData.baseUrl),
-  title: {
-    default: metaData.title,
-    template: `%s | ${metaData.title}`,
-  },
+  title: { default: metaData.title, template: `%s | ${metaData.title}` },
   description: metaData.description,
   openGraph: {
     images: metaData.ogImage,
@@ -28,9 +23,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   robots: {
     index: true,
     follow: true,
@@ -42,38 +35,38 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  twitter: {
-    title: metaData.name,
-    card: "summary_large_image",
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
+  twitter: { title: metaData.name, card: "summary_large_image" },
+  icons: { icon: "/favicon.ico" },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.className}`}>
-      <head></head>
-      <body className="antialiased min-h-screen flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-12">
+    <html lang="en" className={inter.className}>
+      <body className="antialiased min-h-screen">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {/* Page shell: header (top), main (fills), footer (bottom) */}
+          <div className="min-h-screen flex flex-col">
+            <header className="w-full">
+              <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
+                <Navbar />
+              </div>
+            </header>
 
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <main className="flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[624px] w-full">
-            <Navbar />
-            {children}
-            <Footer />
-            <Analytics />
-            <SpeedInsights />
-          </main>
+            <main className="flex-1 w-full">
+              <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+                {children}
+              </div>
+            </main>
+
+            <footer className="w-full border-t border-white/10">
+              <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
+                <Footer />
+              </div>
+            </footer>
+          </div>
+
+          <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
