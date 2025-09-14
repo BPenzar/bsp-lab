@@ -46,7 +46,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {/* Page shell: header (top), main (fills), footer (bottom) */}
           <div className="min-h-screen flex flex-col">
-            <header className="w-full">
+            <header className="w-full sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-black/10 dark:supports-[backdrop-filter]:bg-white/5">
+
               <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
                 <Navbar />
               </div>
