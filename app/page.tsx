@@ -6,7 +6,7 @@ export default function Page() {
     <section>
       <a href={socialLinks.linkedin} target="_blank">
         <Image
-          src="/logo.png" // promijeni ime ako je drugačije (npr. /bsp-logo.svg)
+          src="/bruno.png" // promijeni ime ako je drugačije (npr. /bsp-logo.svg)
           alt="BSP Lab logo"
           className="rounded-full bg-gray-100 block lg:mt-5 mt-0 lg:mb-5 mb-10 mx-auto sm:float-right sm:ml-5 sm:mb-5"
           unoptimized
