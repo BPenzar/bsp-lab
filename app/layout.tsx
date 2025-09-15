@@ -46,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="min-h-screen flex flex-col">
             {/* Header: JEDAN blok, nema viška */}
-            <header className="w-full border-b border-white/10">
+            <header className="w-full border-b" style={{ borderColor: "var(--hairline)" }}>
               <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-5">
                 <Navbar />
               </div>
@@ -60,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </main>
 
             {/* Footer */}
-            <footer className="w-full border-t border-white/10">
+            <footer className="w-full border-t" style={{ borderColor: "var(--hairline)" }}>
               <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
                 <Footer />
               </div>
