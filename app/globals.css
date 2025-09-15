@@ -16,6 +16,7 @@
   /* Podloga/tekst (light) */
   --paper-light: #fbfdff;
   --ink-light: #0b1220;
+   --hairline: rgba(0,0,0,0.08); /* tamna suptilna linija za light */
 
   /* Akcenti (tamni indigo) */
   --hue: 220;
@@ -32,6 +33,7 @@
   /* Podloga/tekst (dark) — midnight navy, ne crno */
   --paper: #0a0f18;
   --ink:   #e6edf7;
+   --hairline: rgba(255,255,255,0.1); /* bijela suptilna linija za dark */
 
   /* Akcenti (dublji indigo; čitljivo, nenametljivo) */
   --hue: 220;
