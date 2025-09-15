@@ -199,5 +199,6 @@ table {
 
 .prose { @apply prose-lg md:prose-xl; }
 .prose p { @apply leading-7 md:leading-8; }
+.prose { @apply prose-base sm:prose-lg md:prose-xl; }
 
 
