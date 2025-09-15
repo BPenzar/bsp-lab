@@ -36,10 +36,11 @@
 
 /* Dark mode tokens */
 .dark {
-  /* Podloga/tekst (dark) — midnight navy, ne crno */
-   --paper: #18181b;   /* zinc-900, mekša crna */
-   --ink:   #f4f4f5;   /* zinc-100, svjetliji tekst */
-   --border: #27272a;  /* zinc-800, suptilan border */
+  /* Podloga/tekst (dark)*/
+   --paper: #1e2533;   /* tamno indigo-siva */
+   --ink:   #f3f4f6;   /* vrlo svijetlo siva za tekst */
+   --border: #2c3445;  /* indigo-border */
+
 
   /* Akcenti (dublji indigo; čitljivo, nenametljivo) */
   --hue: 220;
