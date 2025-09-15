@@ -16,7 +16,7 @@
   /* Podloga/tekst (light) */
     --paper-light: #e9f1fa;   /* svjetlo-plava, ali očito hladnija od bijele */
     --ink-light:   #0a1422;   /* tamnija tinta, da balansira */
-    --border-on-surface: color-mix(in oklab, var(--text) 28%, transparent);
+    --border: #2c3445;  /* indigo-border */
 
   /* Akcenti (tamni indigo) */
   --hue: 220;
