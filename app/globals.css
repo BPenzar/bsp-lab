@@ -123,14 +123,14 @@ html { min-width: 360px; }
 
 
 :root{
-   --header-h: 64px;   /* prilagodi po potrebi */
-   --footer-h: 56px;
-   --header-pad: 12px; /* dodatni razmak ispod headera */
+  --header-h: 64px;
+  --footer-h: 56px;
+  --header-pad: 12px; /* dodatni razmak */
 }
 
 @media (max-width: 640px){
   :root{
-    --header-h: 72px;   /* header je često viši na mobitelu */
+    --header-h: 72px;   /* header češće viši na mobitelu */
     --header-pad: 14px; /* malo više zraka na mobitelu */
   }
 }
