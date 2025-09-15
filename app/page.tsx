@@ -24,13 +24,6 @@ export default function Page() {
             podataka, optimizacija marketinga i podrške.
           </p>
           <p>
-            Kod dostupan na{" "}
-            <a href={socialLinks.github} target="_blank" rel="noopener noreferrer">
-              GitHubu
-            </a>
-            .
-          </p>
-          <p>
             Kontakt:{" "}
             <a href={socialLinks.email} target="_blank" rel="noopener noreferrer">
               penzar.bruno@gmail.com
