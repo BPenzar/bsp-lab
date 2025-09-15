@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image"; // <-- dodano
 import { ThemeSwitch } from "./theme-switch";
 import { metaData } from "../lib/config";
 import { socialLinks } from "../lib/config"; // import for mail address
@@ -11,10 +12,18 @@ const navItems = {
 export function Navbar() {
   return (
     <nav className="w-full flex items-center justify-between py-3">
-      {/* Left: site title */}
-      <div className="flex items-center">
-        <Link href="/" className="text-2xl font-semibold">
-          {metaData.title}
+      {/* Left: logo + site title */}
+      <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/logo.png"   // <-- stavi svoj logo u /public/logo.png
+            alt="BSP Lab logo"
+            width={28}
+            height={28}
+            className="rounded-full ring-1 ring-[color:var(--border)]"
+            priority
+          />
+          <span className="text-2xl font-semibold">{metaData.title}</span>
         </Link>
       </div>
 
@@ -42,4 +51,3 @@ export function Navbar() {
     </nav>
   );
 }
-
