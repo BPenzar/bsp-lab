@@ -64,16 +64,23 @@
 }
 
 /* Globalna primjena podloge/teksta */
-body { background: var(--paper-light); color: var(--ink-light); }
-.dark body { background: var(--paper); color: var(--ink); }
+body {
+  background: var(--bg);
+  color: var(--text);
+}
 
 /* Linkovi */
 a {
   color: var(--accent);
   text-decoration-color: color-mix(in oklab, var(--accent) 60%, transparent);
   text-underline-offset: 3px;
+  transition: color 0.2s ease;
 }
-a:hover { text-decoration-color: var(--accent); }
+a:hover {
+  color: var(--accent-2);
+  text-decoration-color: var(--accent);
+}
+
 
 /* Naslovni gradient (diskretan indigo→indigo) */
 .brand-gradient {
@@ -228,5 +235,16 @@ table {
   --header-h: 64px;   /* prilagodi po potrebi */
   --footer-h: 56px;
 }
+
+/* Diskretan “tech grid” background */
+.bg-grid {
+  background:
+    radial-gradient(800px 400px at 10% 10%, rgba(255,255,255,0.04), transparent 70%),
+    linear-gradient(transparent 0, transparent 31px, var(--border) 32px),
+    linear-gradient(90deg, transparent 0, transparent 31px, var(--border) 32px);
+  background-size: auto, 32px 32px, 32px 32px;
+  background-position: center;
+}
+
 
 
