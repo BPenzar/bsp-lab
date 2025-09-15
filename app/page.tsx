@@ -3,57 +3,55 @@ import { socialLinks } from "./lib/config";
 
 export default function Page() {
   return (
-    <section>
-      <a href={socialLinks.twitter} target="_blank">
-        <Image
-          src="/bruno.jpg"
-          alt="Profile photo"
-          className="rounded-full bg-gray-100 block lg:mt-5 mt-0 lg:mb-5 mb-10 mx-auto sm:float-right sm:ml-5 sm:mb-5 grayscale hover:grayscale-0"
-          unoptimized
-          width={160}
-          height={160}
-          priority
-        />
-      </a>
-      <h1 className="mb-8 text-2xl font-medium">Portfolio template!</h1>
-      <div className="prose prose-neutral dark:prose-invert">
-        <p>
-         
-        </p>
-        <p>
-          {""}
-          <a
-            target="_blank"
-            href="https://github.com/1msirius/Nextfolio?tab=readme-ov-file#features"
-          >
-            more
-          </a>
-          .
-        </p>
-        <p>
-          {" "}
-          <a href={socialLinks.github} target="_blank">
-            open-source
-          </a>{" "}
-         
-        </p>
-        <p>
-          <a
-            href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F1msirius%2FNextfolio"
-            target="_blank"
-          >
-            Deploy
-          </a>{" "}
-         {" "}
-          <a href="/blog/getting-started">Getting Started</a> post.
-        </p>
-        <p>
-          Built and maintained by{" "}
-          <a href="https://imsirius.xyz/" target="_blank">
-            Sirius
-          </a>
-          .
-        </p>
+    <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+      {/* Lijevi stupac: naslov + tekst */}
+      <div className="lg:col-span-7">
+        <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-semibold">
+          Što radimo za Vas
+        </h1>
+
+        <div className="prose prose-neutral dark:prose-invert prose-lg md:prose-xl">
+          <p>
+            Digitalizacija i AI rješenja za mala i srednja poduzeća. Fokus na
+            jednostavne i mjerljive rezultate uz minimalne troškove.
+          </p>
+          <p>
+            Radim implementacije i MVP aplikacije temeljene na Next.js, Supabase i
+            n8n — te integracije s Cloudflare, MailerSend, Sentry i Plausible/Umami.
+          </p>
+          <p>
+            Primjena: automatizacija poslovnih procesa, prikupljanje i analiza
+            podataka, optimizacija marketinga i podrške.
+          </p>
+          <p>
+            Kod dostupan na{" "}
+            <a href={socialLinks.github} target="_blank" rel="noopener noreferrer">
+              GitHubu
+            </a>
+            .
+          </p>
+          <p>
+            Kontakt:{" "}
+            <a href={socialLinks.email} target="_blank" rel="noopener noreferrer">
+              penzar.bruno@gmail.com
+            </a>
+          </p>
+        </div>
+      </div>
+
+      {/* Desni stupac: okrugla slika */}
+      <div className="lg:col-span-5 flex justify-center lg:justify-end">
+        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
+          <Image
+            src="/bruno.jpg"
+            alt="Bruno"
+            width={256}
+            height={256}
+            priority
+            className="rounded-full bg-gray-100 w-40 md:w-52 lg:w-64 h-auto"
+            sizes="(max-width:1024px) 208px, 256px"
+          />
+        </a>
       </div>
     </section>
   );
