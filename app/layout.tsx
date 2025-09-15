@@ -42,11 +42,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.className}>
-      <body className="antialiased min-h-screen pt-[var(--header-h)] pb-[calc(var(--footer-h)+env(safe-area-inset-bottom))]">
+      <body className="antialiased min-h-screen
+        pt-[calc(var(--header-h)+var(--header-pad)+env(safe-area-inset-top))]
+        pb-[calc(var(--footer-h)+env(safe-area-inset-bottom))]
+        bg-[color:var(--bg)] text-[color:var(--text)]">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
 
           {/* Fixed Header */}
-          <header className="fixed top-0 inset-x-0 h-[var(--header-h)] z-50 border-b border-white/10 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/50">
+          <header className="fixed top-0 inset-x-0 h-[var(--header-h)] z-50
+            border-b border-[color:var(--border-on-surface)]
+            bg-[color:var(--paper)]/85 backdrop-blur
+            supports-[backdrop-filter]:bg-[color:var(--paper)]/70">
             <div className="mx-auto w-full max-w-6xl h-full px-4 sm:px-6 lg:px-8 flex items-center">
               <Navbar />
             </div>
@@ -59,9 +65,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </main>
 
-
           {/* Fixed Footer */}
-          <footer className="fixed bottom-0 inset-x-0 h-[var(--footer-h)] z-50 border-t border-white/10 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/50">
+          <footer className="fixed bottom-0 inset-x-0 h-[var(--footer-h)] z-50
+            border-t border-[color:var(--border-on-surface)]
+            bg-[color:var(--paper)]/85 backdrop-blur
+            supports-[backdrop-filter]:bg-[color:var(--paper)]/70">
             <div className="mx-auto w-full max-w-6xl h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between"
                  style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
               <Footer />
@@ -75,4 +83,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
