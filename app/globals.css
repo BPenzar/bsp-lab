@@ -202,3 +202,10 @@ table {
 .prose { @apply prose-base sm:prose-lg md:prose-xl; }
 
 
+
+:root{
+  --header-h: 64px;   /* prilagodi po potrebi */
+  --footer-h: 56px;
+}
+
+
