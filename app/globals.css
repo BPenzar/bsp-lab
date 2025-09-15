@@ -33,6 +33,27 @@
   --paper: #0a0f18;
   --ink:   #e6edf7;
 
+   /* =========================================================
+   Kreativno crno — midnigh navy / indigo
+   ========================================================= */
+
+:root {
+  --paper: var(--paper-light);
+  --ink: var(--ink-light);
+
+  /* fallback za varijante */
+  --bg: var(--paper-light);
+  --text: var(--ink-light);
+  --border: hsl(220 10% 90%);
+}
+
+.dark {
+  --bg: var(--paper);
+  --text: var(--ink);
+  --border: hsl(220 15% 22%);
+}
+
+
   /* Akcenti (dublji indigo; čitljivo, nenametljivo) */
   --hue: 220;
   --accent: hsl(var(--hue) 50% 55%);
