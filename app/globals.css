@@ -123,8 +123,16 @@ html { min-width: 360px; }
 
 
 :root{
-  --header-h: 64px;   /* prilagodi po potrebi */
-  --footer-h: 56px;
+   --header-h: 64px;   /* prilagodi po potrebi */
+   --footer-h: 56px;
+   --header-pad: 8px; /* dodatni razmak ispod headera */
+}
+
+@media (max-width: 640px){
+  :root{
+    --header-h: 72px;   /* header je često viši na mobitelu */
+    --header-pad: 14px; /* malo više zraka na mobitelu */
+  }
 }
 
 /* Diskretan “tech grid” background */
