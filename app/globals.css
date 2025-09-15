@@ -14,8 +14,9 @@
 /* Light mode tokens */
 :root {
   /* Podloga/tekst (light) */
-  --paper-light: #fbfdff;
-  --ink-light: #0b1220;
+  --paper: #141417;   /* custom blend: između zinc-900 i black */
+   --ink:   #f5f5f6;   /* svjetliji tekst da kontrast ost
+
 
   /* Akcenti (tamni indigo) */
   --hue: 220;
