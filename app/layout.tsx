@@ -24,17 +24,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   alternates: { canonical: "/" },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 } },
   twitter: { title: metaData.name, card: "summary_large_image" },
   icons: { icon: "/favicon.ico" },
 };
@@ -42,25 +32,23 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.className}>
-      <body className="antialiased min-h-screen">
+      <body className="antialiased min-h-screen text-[15.5px] md:text-[17px] tracking-tight">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {/* Page shell: header (top), main (fills), footer (bottom) */}
           <div className="min-h-screen flex flex-col">
-            <header className="w-full sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-black/10 dark:supports-[backdrop-filter]:bg-white/5">
-
-              <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
+            <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-black/10 dark:bg-[#0a0f18]/40 backdrop-blur">
+              <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 h-16 flex items-center">
                 <Navbar />
               </div>
             </header>
 
             <main className="flex-1 w-full">
-              <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+              <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-16 md:py-24">
                 {children}
               </div>
             </main>
 
             <footer className="w-full border-t border-white/10">
-              <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
+              <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-10">
                 <Footer />
               </div>
             </footer>
