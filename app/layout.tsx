@@ -53,11 +53,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </header>
 
           {/* Main */}
-          <main className="w-full">
-            <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+          <main className="w-full flex items-center justify-center min-h-[calc(100vh-var(--header-h)-var(--footer-h))]">
+            <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
               {children}
             </div>
           </main>
+
 
           {/* Fixed Footer */}
           <footer className="fixed bottom-0 inset-x-0 h-[var(--footer-h)] z-50 border-t border-white/10 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/50">
