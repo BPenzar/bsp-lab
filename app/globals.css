@@ -16,7 +16,7 @@
   /* Podloga/tekst (light) */
     --paper-light: #e9f1fa;   /* svjetlo-plava, ali očito hladnija od bijele */
     --ink-light:   #0a1422;   /* tamnija tinta, da balansira */
-    --border: #2c3445;  /* indigo-border */
+    --border: #c3cddc; /* sivo-plava, dovoljno tamna za bijelu pozadinu */
 
   /* Akcenti (tamni indigo) */
   --hue: 220;
@@ -41,6 +41,7 @@
    --paper: #0a0e1a;   /* custom blend */
    --ink:   #f3f4f6;   /* vrlo svijetlo siva za tekst */
    --border: #2c3445;  /* indigo-border */
+   --border-light: var(--border); 
 
 
   /* Akcenti (dublji indigo; čitljivo, nenametljivo) */
