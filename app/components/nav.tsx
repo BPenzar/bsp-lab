@@ -23,7 +23,9 @@ export function Navbar() {
             className="rounded-full ring-1 ring-[color:var(--border)]"
             priority
           />
-          <span className="text-2xl font-semibold">{metaData.title}</span>
+          <span className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-semibold whitespace-nowrap">
+            {metaData.title}
+          </span>
         </Link>
       </div>
 
