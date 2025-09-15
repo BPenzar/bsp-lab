@@ -194,3 +194,9 @@ table {
   --sh-property: #e25a1c;
   --sh-entity: #e25a1c;
 }
+
+/* Veća tipografija u sadržaju */
+.prose { @apply prose-lg md:prose-xl; }
+.prose p { @apply leading-7 md:leading-8; }
+.prose h1 { @apply text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight; }
+
