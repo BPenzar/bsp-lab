@@ -1,4 +1,3 @@
-
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -43,7 +42,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.className}>
-      <body className="antialiased min-h-screen pt-[var(--header-h)] pb-[calc(var(--footer-h)+env(safe-area-inset-bottom))]">
+      <body
+        className="antialiased min-h-screen
+                   pt-[calc(var(--header-h)+var(--header-pad)+env(safe-area-inset-top))]
+                   pb-[calc(var(--footer-h)+env(safe-area-inset-bottom))]"
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
 
           {/* Fixed Header */}
@@ -60,11 +63,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </main>
 
-
           {/* Fixed Footer */}
           <footer className="fixed bottom-0 inset-x-0 h-[var(--footer-h)] z-50 border-t border-white/10 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/50">
-            <div className="mx-auto w-full max-w-6xl h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between"
-                 style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+            <div
+              className="mx-auto w-full max-w-6xl h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between"
+              style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+            >
               <Footer />
             </div>
           </footer>
