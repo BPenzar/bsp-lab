@@ -4,14 +4,13 @@ import { socialLinks } from "./lib/config";
 export default function Page() {
   return (
     <section className="w-full min-h-[calc(100vh-var(--header-h)-var(--footer-h))] grid grid-cols-1 lg:grid-cols-12 items-center gap-10 lg:gap-16">
-      {/* Lijevo: naslov + tekst (8/12) */}
-      <div className="lg:col-span-8">
+      {/* Tekst */}
+      <div className="lg:col-span-7 text-center lg:text-left">
         <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-semibold">
           Što radimo za Vas
         </h1>
 
-        {/* Uklonjen max-width na prose */}
-        <div className="prose prose-neutral dark:prose-invert prose-lg md:prose-xl max-w-none">
+        <div className="prose prose-neutral dark:prose-invert prose-lg md:prose-xl max-w-none mx-auto lg:mx-0">
           <p>
             Digitalizacija i AI rješenja za mala i srednja poduzeća. Fokus na
             jednostavne i mjerljive rezultate uz minimalne troškove.
@@ -33,8 +32,8 @@ export default function Page() {
         </div>
       </div>
 
-      {/* Desno: slika (4/12), skroz desno */}
-      <div className="lg:col-span-4 justify-self-center lg:justify-self-end">
+      {/* Slika */}
+      <div className="lg:col-span-5 flex justify-center lg:justify-end">
         <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
           <Image
             src="/bruno.jpg"
