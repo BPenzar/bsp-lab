@@ -125,7 +125,7 @@ html { min-width: 360px; }
 :root{
    --header-h: 64px;   /* prilagodi po potrebi */
    --footer-h: 56px;
-   --header-pad: 8px; /* dodatni razmak ispod headera */
+   --header-pad: 12px; /* dodatni razmak ispod headera */
 }
 
 @media (max-width: 640px){
