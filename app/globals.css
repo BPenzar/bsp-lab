@@ -38,7 +38,7 @@
 /* Dark mode tokens */
 .dark {
   /* Podloga/tekst (dark)*/
-   --paper: #1e2533;   /* tamno indigo-siva */
+   --paper: #0a0e1a;   /* custom blend */
    --ink:   #f3f4f6;   /* vrlo svijetlo siva za tekst */
    --border: #2c3445;  /* indigo-border */
 
