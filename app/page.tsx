@@ -3,7 +3,7 @@ import { socialLinks } from "./lib/config";
 
 export default function Page() {
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+    <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start max-w-6xl 2xl:max-w-7xl mx-auto px-6">
       {/* Lijevi stupac: naslov + tekst */}
       <div className="lg:col-span-7">
         <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-semibold">
@@ -16,8 +16,9 @@ export default function Page() {
             jednostavne i mjerljive rezultate uz minimalne troškove.
           </p>
           <p>
-            Radim implementacije i MVP aplikacije temeljene na Next.js, Supabase i
-            n8n — te integracije s Cloudflare, MailerSend, Sentry i Plausible/Umami.
+            Radim implementacije i MVP aplikacije temeljene na Next.js, Supabase
+            i n8n — te integracije s Cloudflare, MailerSend, Sentry i
+            Plausible/Umami.
           </p>
           <p>
             Primjena: automatizacija poslovnih procesa, prikupljanje i analiza
@@ -25,7 +26,11 @@ export default function Page() {
           </p>
           <p>
             Kontakt:{" "}
-            <a href={socialLinks.email} target="_blank" rel="noopener noreferrer">
+            <a
+              href={socialLinks.email}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               penzar.bruno@gmail.com
             </a>
           </p>
@@ -34,7 +39,11 @@ export default function Page() {
 
       {/* Desni stupac: okrugla slika */}
       <div className="lg:col-span-5 flex justify-center lg:justify-end">
-        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
+        <a
+          href={socialLinks.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image
             src="/bruno.jpg"
             alt="Bruno"
