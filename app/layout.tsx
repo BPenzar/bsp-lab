@@ -48,25 +48,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                    pb-[calc(var(--footer-h)+env(safe-area-inset-bottom))]"
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {/* FIXED HEADER */}
+         {/* FIXED HEADER */}
           <header
             className="fixed top-0 inset-x-0 h-[var(--header-h)] z-50
                        border-b bg-[color:var(--paper)]/85 backdrop-blur
                        supports-[backdrop-filter]:bg-[color:var(--paper)]/70"
             style={{ borderColor: "var(--hairline)" }}
           >
-            <div className="mx-auto w-full max-w-6xl h-full px-4 sm:px-6 lg:px-8 flex items-center">
+            <div className="w-full h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
               <Navbar />
             </div>
           </header>
-
-          {/* MAIN (centar između headera i footera) */}
+          
+          {/* MAIN */}
           <main className="w-full flex items-center justify-center min-h-[calc(100vh-var(--header-h)-var(--footer-h))]">
-            <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="w-full px-4 sm:px-6 lg:px-8">
               {children}
             </div>
           </main>
-
+          
           {/* FIXED FOOTER */}
           <footer
             className="fixed bottom-0 inset-x-0 h-[var(--footer-h)] z-50
@@ -75,12 +75,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{ borderColor: "var(--hairline)" }}
           >
             <div
-              className="mx-auto w-full max-w-6xl h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between"
+              className="w-full h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between"
               style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
             >
               <Footer />
             </div>
           </footer>
+
 
           <Analytics />
           <SpeedInsights />
