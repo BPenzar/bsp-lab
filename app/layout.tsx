@@ -35,7 +35,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased min-h-screen text-[15.5px] md:text-[17px] tracking-tight">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="min-h-screen flex flex-col">
-            <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-black/10 dark:bg-[#0a0f18]/40 backdrop-blur">
+           <header className="w-full border-b border-white/10">
+  <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-5">
+    <Navbar />
+  </div>
+</header>
+
               <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 h-16 flex items-center">
                 <Navbar />
               </div>
