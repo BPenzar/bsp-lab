@@ -42,31 +42,33 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.className}>
-      <body className="antialiased min-h-screen">
+      <body
+        className="antialiased min-h-screen
+                   pt-[calc(var(--header-h)+var(--header-pad)+env(safe-area-inset-top))]
+                   pb-[calc(var(--footer-h)+env(safe-area-inset-bottom))]"
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="min-h-screen flex flex-col">
-            {/* Header: JEDAN blok, nema viška */}
-            <header className="w-full border-b" style={{ borderColor: "var(--hairline)" }}>
-              <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-5">
-                <Navbar />
-              </div>
-            </header>
-
-            {/* Main */}
-            <main className="flex-1 w-full">
-              <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-10 md:py-14">
-                {children}
-              </div>
-            </main>
-
-            {/* Footer */}
-            <footer className="w-full border-t" style={{ borderColor: "var(--hairline)" }}>
-              <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
-                <Footer />
-              </div>
-            </footer>
-          </div>
-
+          {/* Fixed Header */}
+          <header className="w-full border-b" style={{ borderColor: "var(--hairline)" }}>
+            <div className="mx-auto w-full max-w-6xl h-full px-4 sm:px-6 lg:px-8 flex items-center">
+              <Navbar />
+            </div>
+          </header>
+          {/* Main */}
+          <main className="w-full flex items-center justify-center min-h-[calc(100vh-var(--header-h)-var(--footer-h))]">
+            <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+              {children}
+            </div>
+          </main>
+          {/* Fixed Footer */}
+          <footer className="w-full border-t" style={{ borderColor: "var(--hairline)" }}>
+            <div
+              className="mx-auto w-full max-w-6xl h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between"
+              style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+            >
+              <Footer />
+            </div>
+          </footer>
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>

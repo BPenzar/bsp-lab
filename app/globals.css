@@ -14,9 +14,9 @@
 /* Light mode tokens */
 :root {
   /* Podloga/tekst (light) */
-  --paper-light: #fbfdff;
-  --ink-light: #0b1220;
-   --hairline: rgba(0,0,0,0.08); /* tamna suptilna linija za light */
+    --paper-light: #e9f1fa;   /* svjetlo-plava, ali očito hladnija od bijele */
+    --ink-light:   #0a1422;   /* tamnija tinta, da balansira */
+    --hairline: rgba(0,0,0,0.08); /* tamna suptilna linija za light */
 
   /* Akcenti (tamni indigo) */
   --hue: 220;
@@ -26,13 +26,20 @@
   /* Sekundarne */
   --muted: hsl(220 10% 45%);
   --ring:  hsl(var(--hue) 55% 45%);
+
+  /* Univerzalne varijable (default = light) */
+  --paper: var(--paper-light);
+  --ink:   var(--ink-light);
+  --bg:    var(--paper-light);
+  --text:  var(--ink-light);
+  --border: hsl(220 10% 90%);
 }
 
 /* Dark mode tokens */
 .dark {
-  /* Podloga/tekst (dark) — midnight navy, ne crno */
-  --paper: #0a0f18;
-  --ink:   #e6edf7;
+  /* Podloga/tekst (dark)*/
+   --paper: #0a0e1a;   /* custom blend */
+   --ink:   #f3f4f6;   /* vrlo svijetlo siva za tekst */
    --hairline: rgba(255,255,255,0.1); /* bijela suptilna linija za dark */
 
   /* Akcenti (dublji indigo; čitljivo, nenametljivo) */
@@ -42,19 +49,30 @@
 
   --muted: hsl(215 12% 72%);
   --ring:  hsl(var(--hue) 50% 50%);
+
+  /* Univerzalne varijable (override za dark) */
+  --bg:    var(--paper);
+  --text:  var(--ink);
+  --border: hsl(220 15% 22%);
 }
 
 /* Globalna primjena podloge/teksta */
-body { background: var(--paper-light); color: var(--ink-light); }
-.dark body { background: var(--paper); color: var(--ink); }
+body {
+  background: var(--bg);
+  color: var(--text);
+}
 
 /* Linkovi */
 a {
   color: var(--accent);
   text-decoration-color: color-mix(in oklab, var(--accent) 60%, transparent);
   text-underline-offset: 3px;
+  transition: color 0.2s ease;
 }
-a:hover { text-decoration-color: var(--accent); }
+a:hover {
+  color: var(--accent-2);
+  text-decoration-color: var(--accent);
+}
 
 /* Naslovni gradient (diskretan indigo→indigo) */
 .brand-gradient {
@@ -93,114 +111,38 @@ a:hover { text-decoration-color: var(--accent); }
   color: #fefefe;
 }
 
-/* =========================================================
-   Tvoji postojeći stilovi (prose, code, tablice, itd.)
-   ========================================================= */
-
+/* Osnovne postavke */
 html { min-width: 360px; }
 
-.prose { @apply text-[#000000] dark:text-[#FFFFFF]; }
-
-.prose .anchor {
-  @apply absolute invisible no-underline;
-  margin-left: -1em;
-  padding-right: 0.5em;
-  width: 80%;
-  max-width: 700px;
-  cursor: pointer;
-}
-
-.anchor:hover { @apply visible; }
-
-.prose a {
-  @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em] font-normal text-[#000000] dark:text-[#FFFFFF];
-}
-.prose a:hover { @apply dark:decoration-neutral-400 decoration-neutral-600; }
-
-.prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
-  content: "#";
-}
-.prose *:hover > .anchor { @apply visible; }
-
-.prose pre { @apply bg-[#F7F7F7] dark:bg-[#181818] rounded-lg overflow-x-auto; }
-.prose code { @apply px-1 py-0.5 rounded-lg; }
-.prose pre code { @apply p-0; border: initial; line-height: 1.5; }
-.prose code span { @apply font-medium; }
-
-.prose img { @apply m-0; } /* ne stiliziraj next/image */
-
-.prose h2, h3, h4, h5, h6 { @apply font-medium; }
-.prose strong { @apply font-medium; }
-
-.prose > :first-child {
-  /* Override removing top margin, causing layout shift */
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
-}
-
-.prose-quoteless blockquote p:first-of-type::before,
-.prose-quoteless blockquote p:first-of-type::after { content: none; }
-
-pre::-webkit-scrollbar { display: none; }
-pre { -ms-overflow-style: none; scrollbar-width: none; }
-
-/* Remove Safari input shadow on mobile */
-input[type="text"], input[type="email"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.prose .tweet a { text-decoration: inherit; font-weight: 500; }
-
-table {
-  display: block;
-  max-width: fit-content;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.prose .callout > p { margin: 0; }
-
-.title { text-wrap: balance; }
-
-/* =========================================================
-   Syntax highlighting varijable (zadržano iz tvog koda)
-   — OVE VARIJABLE NE DIRAJU BRAND BOJE
-   ========================================================= */
-
-/* Light theme colors */
-:root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
-}
-
-/* Dark theme colors */
-.dark {
-  /* NAPOMENA: nema background-color ovdje */
-  --sh-class: #4c97f8;
-  --sh-identifier: #ffffff;
-  --sh-sign: #8996a3;
-  --sh-string: #0fa295;
-  --sh-keyword: #f47067;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
-}
-
-/* Veća tipografija u sadržaju */
-
-.prose { @apply prose-lg md:prose-xl; }
+/* Prose – zadrži jednu definiciju (bilo je duplikata) */
+.prose { @apply prose-base sm:prose-lg md:prose-xl text-[#000000] dark:text-[#FFFFFF]; }
 .prose p { @apply leading-7 md:leading-8; }
-.prose { @apply prose-base sm:prose-lg md:prose-xl; }
+
+/* Ostalo (anchor, code, tables…) ostaje kako već imaš ispod */
+
+
+:root{
+  --header-h: 64px;
+  --footer-h: 56px;
+  --header-pad: 12px; /* dodatni razmak */
+}
+
+@media (max-width: 640px){
+  :root{
+    --header-h: 72px;   /* header češće viši na mobitelu */
+    --header-pad: 14px; /* malo više zraka na mobitelu */
+  }
+}
+
+/* Diskretan “tech grid” background */
+.bg-grid {
+  background:
+    radial-gradient(800px 400px at 10% 10%, rgba(255,255,255,0.04), transparent 70%),
+    linear-gradient(transparent 0, transparent 31px, var(--border) 32px),
+    linear-gradient(90deg, transparent 0, transparent 31px, var(--border) 32px);
+  background-size: auto, 32px 32px, 32px 32px;
+  background-position: center;
+}
+
 
 
