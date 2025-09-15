@@ -5,20 +5,18 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* =========================================================
-   Brand color system — Deep Indigo (premium, bez tirkiza)
+   Brand color system — Deep Indigo
    ========================================================= */
 
-/* Animabilan hue token (za buduću upotrebu; trenutno statično) */
 @property --hue { syntax: "<number>"; inherits: false; initial-value: 220; }
 
 /* Light mode tokens */
 :root {
   /* Podloga/tekst (light) */
-    --paper-light: #e9f1fa;   /* svjetlo-plava, ali očito hladnija od bijele */
-    --ink-light:   #0a1422;   /* tamnija tinta, da balansira */
-    --hairline: rgba(0,0,0,0.08); /* tamna suptilna linija za light */
+  --paper-light: #e9f1fa;   /* hladno, svjetlo-plava */
+  --ink-light:   #0a1422;   /* tamna tinta */
 
-  /* Akcenti (tamni indigo) */
+  /* Akcenti */
   --hue: 220;
   --accent: hsl(var(--hue) 45% 40%);
   --accent-2: hsl(calc(var(--hue) + 12) 38% 36%);
@@ -32,17 +30,21 @@
   --ink:   var(--ink-light);
   --bg:    var(--paper-light);
   --text:  var(--ink-light);
+
+  /* Hairline border (light) */
+  --hairline: rgba(0,0,0,0.08);
+
+  /* Suptilni grid linije (ako koristiš .bg-grid) */
   --border: hsl(220 10% 90%);
 }
 
 /* Dark mode tokens */
 .dark {
-  /* Podloga/tekst (dark)*/
-   --paper: #0a0e1a;   /* custom blend */
-   --ink:   #f3f4f6;   /* vrlo svijetlo siva za tekst */
-   --hairline: rgba(255,255,255,0.1); /* bijela suptilna linija za dark */
+  /* Podloga/tekst (dark) */
+  --paper: #0a0e1a;   /* deep midnight navy */
+  --ink:   #f3f4f6;   /* svijetli tekst */
 
-  /* Akcenti (dublji indigo; čitljivo, nenametljivo) */
+  /* Akcenti */
   --hue: 220;
   --accent: hsl(var(--hue) 50% 55%);
   --accent-2: hsl(calc(var(--hue) - 12) 45% 48%);
@@ -53,33 +55,30 @@
   /* Univerzalne varijable (override za dark) */
   --bg:    var(--paper);
   --text:  var(--ink);
-  --border: hsl(220 15% 22%);
+
+  /* Hairline border (dark) */
+  --hairline: rgba(255,255,255,0.1);
+
+  /* Suptilni grid linije */
+  --border: #2c3445;
 }
 
-/* Globalna primjena podloge/teksta */
-body {
-  background: var(--bg);
-  color: var(--text);
-}
+/* Global */
+body { background: var(--bg); color: var(--text); }
 
 /* Linkovi */
 a {
   color: var(--accent);
   text-decoration-color: color-mix(in oklab, var(--accent) 60%, transparent);
   text-underline-offset: 3px;
-  transition: color 0.2s ease;
+  transition: color .2s ease;
 }
-a:hover {
-  color: var(--accent-2);
-  text-decoration-color: var(--accent);
-}
+a:hover { color: var(--accent-2); text-decoration-color: var(--accent); }
 
-/* Naslovni gradient (diskretan indigo→indigo) */
+/* Naslovni gradient */
 .brand-gradient {
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 
 /* Gumbi */
@@ -98,43 +97,35 @@ a:hover {
   border: 1px solid color-mix(in oklab, var(--accent) 55%, var(--ink) 45%);
   background: transparent;
 }
-.btn-outline:hover {
-  background: color-mix(in oklab, var(--accent) 10%, transparent);
-}
+.btn-outline:hover { background: color-mix(in oklab, var(--accent) 10%, transparent); }
 
-/* Focus ring */
+/* Focus + Selection */
 :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
-
-/* Selection boja prilagođena akcentu */
-::selection {
-  background-color: color-mix(in oklab, var(--accent) 60%, transparent);
-  color: #fefefe;
-}
+::selection { background-color: color-mix(in oklab, var(--accent) 60%, transparent); color: #fefefe; }
 
 /* Osnovne postavke */
 html { min-width: 360px; }
 
-/* Prose – zadrži jednu definiciju (bilo je duplikata) */
+/* Prose (jedna definicija) */
 .prose { @apply prose-base sm:prose-lg md:prose-xl text-[#000000] dark:text-[#FFFFFF]; }
 .prose p { @apply leading-7 md:leading-8; }
 
-/* Ostalo (anchor, code, tables…) ostaje kako već imaš ispod */
+/* Tvoje ostalo (anchor, code, tables…) — zadrži kako imaš */
 
-
+/* Layout varijable za fixed header/footer */
 :root{
   --header-h: 64px;
   --footer-h: 56px;
-  --header-pad: 12px; /* dodatni razmak */
+  --header-pad: 12px; /* dodatni razmak ispod headera */
 }
-
 @media (max-width: 640px){
   :root{
-    --header-h: 72px;   /* header češće viši na mobitelu */
-    --header-pad: 14px; /* malo više zraka na mobitelu */
+    --header-h: 72px;
+    --header-pad: 14px;
   }
 }
 
-/* Diskretan “tech grid” background */
+/* Diskretan “tech grid” background (opcionalno) */
 .bg-grid {
   background:
     radial-gradient(800px 400px at 10% 10%, rgba(255,255,255,0.04), transparent 70%),
@@ -143,6 +134,3 @@ html { min-width: 360px; }
   background-size: auto, 32px 32px, 32px 32px;
   background-position: center;
 }
-
-
-
