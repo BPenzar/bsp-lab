@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function Projects() {
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-medium">Projects</h1>
+    <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start max-w-6xl 2xl:max-w-7xl mx-auto px-6">
+      <h1 className="b-8 text-2xl md:text-4xl lg:text-5xl font-semibold">Projects</h1>
       <div>
         {projects.map((project, index) => (
           <Link
@@ -30,5 +30,7 @@ export default function Projects() {
         ))}
       </div>
     </section>
+
+    
   );
 }
