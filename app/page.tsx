@@ -5,8 +5,8 @@ import { socialLinks } from "./lib/config";
 export default function Page() {
   return (
     // centriraj unutar RootLayout <main> koji već računa header/footer
-    <section className="min-h-full flex items-center">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center max-w-6xl 2xl:max-w-7xl mx-auto w-full px-6">
+    <section className="flex items-start lg:min-h-full lg:items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start lg:items-center max-w-6xl 2xl:max-w-7xl mx-auto w-full px-6">
         {/* Lijevi stupac */}
         <div className="lg:col-span-7">
           <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-semibold">
