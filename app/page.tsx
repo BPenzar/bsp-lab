@@ -16,16 +16,16 @@ export default function Page() {
             jednostavne i mjerljive rezultate uz minimalne troškove.
           </p>
           <p>
-            Radim implementacije i MVP aplikacije temeljene na Next.js, Supabase
-            i n8n — te integracije s Cloudflare, MailerSend, Sentry i
-            Plausible/Umami.
+            Manje ručnog rada. Više prihoda.
+            Uvodimo digitalna i AI rješenja koja režu troškove i ubrzavaju posao. 
+            Fokus nam je na jasnim, mjerljivim rezultatima u kratkom roku.
           </p>
           <p>
-            Primjena: automatizacija poslovnih procesa, prikupljanje i analiza
-            podataka, optimizacija marketinga i podrške.
+            Automatiziramo ponavljajuće zadatke, sređujemo podatke i ubrzavamo marketing i podršku. 
+            Sve to u obliku malih, brzih projekata s brzim povratom.
           </p>
           <p>
-            Kontakt:{" "}
+            Kontaktirajte nas na:{" "}
             <a
               href={socialLinks.email}
               target="_blank"
