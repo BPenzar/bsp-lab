@@ -9,7 +9,7 @@ export const projects: Project[] = [
   {
     title: "HZZ Zahtjev (2024) ",
     year: 2024,
-    description: "Brzo ispunjenje HZZ-a zatjeva (2024) za: zahtjev za dodjelu potpore male vrijednosti u svrhu samozapošljavanja ",
+    description: "Brzo izradi prvu ideju za zahtjeva potpore samozapošljavanja HZZ-a (2024)",
     url: "",
   },
   {

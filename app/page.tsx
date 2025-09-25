@@ -3,7 +3,9 @@ import { socialLinks } from "./lib/config";
 
 export default function Page() {
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start max-w-6xl 2xl:max-w-7xl mx-auto px-6">
+    <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start max-w-6xl 2xl:max-w-7xl mx-auto px-6 
+                    pt-[calc(var(--header-h)+var(--header-pad)+env(safe-area-inset-top))]">
+
       {/* Lijevi stupac: naslov + tekst */}
       <div className="lg:col-span-7">
         <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-semibold">

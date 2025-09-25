@@ -4,43 +4,39 @@ import { projects } from "./project-data";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Nextfolio Projects",
+  description: "BSP Lab Projects",
 };
 
 export default function Projects() {
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start max-w-6xl 2xl:max-w-7xl mx-auto px-6">
-      {/* Lijevi stupac – isti raster kao na početnoj */}
-      <div className="lg:col-span-7">
-        <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-semibold">
-          Projects
-        </h1>
+    <section className="mx-auto w-full max-w-4xl px-6 pt-6 pb-12">
 
-        <div className="space-y-6">
-          {projects.map((project, index) => (
-            <Link
-              key={index}
-              href={project.url}
-              className="block transition-opacity duration-200 hover:opacity-80"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
-                <h2 className="text-lg md:text-xl text-black dark:text-white">
-                  {project.title}
-                </h2>
-                <p className="text-neutral-600 dark:text-neutral-400">
-                  {project.description}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
+      <h1 className="mt-0 text-center text-4xl md:text-5xl font-semibold tracking-tight">
+        Projekte
+      </h1>
+      <p className="mt-1 text-center text-neutral-600 dark:text-neutral-400">
+        Izbor aktualnih projekata i alata u izradi.
+      </p>
+
+      <div className="mt-16 space-y-10">
+        {projects.map((project, i) => (
+          <Link
+            key={i}
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col sm:flex-row sm:items-center sm:justify-between 
+                      border-b border-neutral-200/20 dark:border-neutral-800/60 pb-3 hover:opacity-80"
+          >
+            <h2 className="text-xl font-medium text-blue-400 group-hover:underline">
+              {project.title}
+            </h2>
+            <p className="text-white text-sm sm:text-base text-right">
+              {project.description}
+            </p>
+          </Link>
+        ))}
       </div>
-
-      {/* Desni “prazan” stupac za poravnanje kao na homepageu */}
-      <div className="hidden lg:block lg:col-span-5" />
     </section>
-
   );
 }

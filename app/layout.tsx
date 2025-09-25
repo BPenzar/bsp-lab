@@ -36,19 +36,22 @@ export const metadata: Metadata = {
     },
   },
   twitter: { title: metaData.name, card: "summary_large_image" },
-  icons: { icon: "/favicon.ico" },
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
-      <body
-        className="antialiased min-h-screen
-                   pt-[calc(var(--header-h)+var(--header-pad)+env(safe-area-inset-top))]
-                   pb-[calc(var(--footer-h)+env(safe-area-inset-bottom))]"
-      >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-         {/* FIXED HEADER */}
+      <body className="antialiased min-h-screen">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* FIXED HEADER */}
           <header
             className="fixed top-0 inset-x-0 h-[var(--header-h)] z-50
                        border-b bg-[color:var(--paper)]/85 backdrop-blur
@@ -59,14 +62,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Navbar />
             </div>
           </header>
-          
+
           {/* MAIN */}
-          <main className="w-full flex items-center justify-center min-h-[calc(100vh-var(--header-h)-var(--footer-h))]">
-            <div className="w-full px-4 sm:px-6 lg:px-8">
-              {children}
-            </div>
+          <main
+            className="w-full flex justify-center 
+                       min-h-[calc(100vh-var(--header-h)-var(--footer-h))]
+                       pt-[calc(var(--header-h)+var(--header-pad)+env(safe-area-inset-top))]
+                       pb-[calc(var(--footer-h)+env(safe-area-inset-bottom))]"
+          >
+            
+            <div className="w-full px-4 sm:px-6 lg:px-8">{children}</div>
           </main>
-          
+
           {/* FIXED FOOTER */}
           <footer
             className="fixed bottom-0 inset-x-0 h-[var(--footer-h)] z-50
@@ -81,7 +88,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Footer />
             </div>
           </footer>
-
 
           <Analytics />
           <SpeedInsights />
